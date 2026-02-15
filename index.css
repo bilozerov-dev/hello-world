@@ -1,0 +1,170 @@
+:root {
+  --moon-size: 100px;
+  --moon-position-top: 10%;
+  --moon-position-left: 50%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+.cosmos-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at top, #0c0c20 0%, #000000 100%);
+  z-index: -1;
+}
+
+.moon-position {
+  position: absolute;
+  top: var(--moon-position-top);
+  left: var(--moon-position-left);
+}
+
+.black-hole-moon {
+  transform: translateX(-50%);
+  width: var(--moon-size);
+  height: var(--moon-size);
+  border-radius: 50%;
+  /* Pure black as requested */
+  background: #000;
+  box-shadow:
+    /* Inner shadow for depth */
+    inset 0 0 30px rgba(0, 0, 0, 0.9),
+    inset -10px -10px 20px rgba(255, 255, 255, 0.05),
+    /* Event horizon glow */ 0 0 15px 2px rgba(50, 50, 80, 0.4);
+  z-index: 2;
+}
+
+.black-hole-moon-placeholder {
+  transform: translateX(-50%);
+  width: var(--moon-size);
+  height: var(--moon-size);
+  border-radius: 50%;
+  /* Pure black as requested */
+  background: #000;
+  box-shadow:
+    /* Inner shadow for depth */
+    inset 0 0 30px rgba(0, 0, 0, 0.9),
+    inset -10px -10px 20px rgba(255, 255, 255, 0.05),
+    /* Event horizon glow */ 0 0 15px 2px rgba(50, 50, 80, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+/* Aurora radiance effect - multiple layers for dispersed light */
+.black-hole-moon-placeholder::before,
+.black-hole-moon-placeholder::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1; /* This ensures they stay BEHIND the black hole */
+}
+
+/* First radiance layer - green and pink aurora */
+.black-hole-moon-placeholder::before {
+  width: 400%;
+  height: 400%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(34, 197, 94, 0.25) 0%,
+    rgba(168, 85, 247, 0.2) 15%,
+    rgba(236, 72, 153, 0.15) 30%,
+    rgba(34, 197, 94, 0.1) 45%,
+    transparent 70%
+  );
+  animation: aurora-pulse 12s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+/* Second radiance layer - blue and cyan dispersed light */
+.black-hole-moon-placeholder::after {
+  width: 600%;
+  height: 600%;
+  background: radial-gradient(
+    circle at center,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(34, 197, 94, 0.12) 20%,
+    rgba(236, 72, 153, 0.1) 35%,
+    rgba(6, 182, 212, 0.08) 50%,
+    transparent 75%
+  );
+  animation: aurora-disperse 20s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+/* Slow pulsing aurora animation */
+@keyframes aurora-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  33% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1) rotate(120deg);
+  }
+  66% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(0.95) rotate(240deg);
+  }
+}
+
+/* Very slow dispersing effect */
+@keyframes aurora-disperse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 0.6;
+    transform: translate(-48%, -52%) scale(1.15) rotate(-90deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-52%, -48%) scale(1.05) rotate(-180deg);
+  }
+  75% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1.2) rotate(-270deg);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 60vh 2rem 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #22c55e, #f97316, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}

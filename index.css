@@ -41,83 +41,73 @@ body {
   pointer-events: none;
 }
 
-/* First aurora layer - subtle green with blue */
+/* First aurora layer - soft green */
 .cosmos-background::before {
   background:
     radial-gradient(
       ellipse 80% 60% at 50% 20%,
-      rgba(59, 130, 246, 0.5) 0%,
-      rgba(37, 99, 235, 0.35) 20%,
-      rgba(16, 185, 129, 0.2) 40%,
+      rgba(16, 185, 129, 0.28) 0%,
+      rgba(16, 185, 129, 0.2) 20%,
+      rgba(34, 197, 94, 0.15) 40%,
       transparent 70%
     ),
     radial-gradient(
       ellipse 60% 50% at 30% 25%,
-      rgba(37, 99, 235, 0.4) 0%,
-      rgba(59, 130, 246, 0.25) 30%,
+      rgba(34, 197, 94, 0.25) 0%,
+      rgba(16, 185, 129, 0.18) 30%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 60% 50% at 70% 25%,
-      rgba(16, 185, 129, 0.25) 0%,
+      rgba(16, 185, 129, 0.22) 0%,
       rgba(34, 197, 94, 0.15) 30%,
       transparent 60%
     );
-  animation: aurora-wave-1 20s ease-in-out infinite alternate;
+  animation: aurora-breathe-1 8s ease-in-out infinite;
 }
 
-/* Second aurora layer - blue dominant with hints of green */
+/* Second aurora layer - soft emerald green */
 .cosmos-background::after {
   background:
     radial-gradient(
       ellipse 75% 55% at 50% 22%,
-      rgba(59, 130, 246, 0.45) 0%,
-      rgba(37, 99, 235, 0.3) 25%,
-      rgba(16, 185, 129, 0.15) 45%,
+      rgba(34, 197, 94, 0.26) 0%,
+      rgba(16, 185, 129, 0.2) 25%,
+      rgba(5, 150, 105, 0.14) 45%,
       transparent 75%
     ),
     radial-gradient(
       ellipse 55% 45% at 40% 28%,
-      rgba(37, 99, 235, 0.35) 0%,
-      rgba(59, 130, 246, 0.25) 35%,
+      rgba(16, 185, 129, 0.22) 0%,
+      rgba(34, 197, 94, 0.16) 35%,
       transparent 65%
     ),
     radial-gradient(
       ellipse 55% 45% at 60% 28%,
-      rgba(16, 185, 129, 0.2) 0%,
-      rgba(34, 197, 94, 0.12) 35%,
+      rgba(5, 150, 105, 0.2) 0%,
+      rgba(16, 185, 129, 0.14) 35%,
       transparent 65%
     );
-  animation: aurora-wave-2 25s ease-in-out infinite alternate-reverse;
+  animation: aurora-breathe-2 10s ease-in-out infinite;
 }
 
-@keyframes aurora-wave-1 {
-  0% {
-    transform: translateX(0%) translateY(0%) scale(1) rotate(0deg);
-    opacity: 0.7;
+@keyframes aurora-breathe-1 {
+  0%,
+  100% {
+    opacity: 0.6;
   }
   50% {
-    transform: translateX(-1%) translateY(-0.5%) scale(1.01) rotate(-0.3deg);
-    opacity: 0.75;
-  }
-  100% {
-    transform: translateX(1%) translateY(-1%) scale(0.99) rotate(0.3deg);
-    opacity: 0.7;
+    opacity: 0.85;
   }
 }
 
-@keyframes aurora-wave-2 {
-  0% {
-    transform: translateX(0%) translateY(0%) scale(1) rotate(0deg);
-    opacity: 0.75;
+@keyframes aurora-breathe-2 {
+  0%,
+  100% {
+    opacity: 0.65;
   }
   50% {
-    transform: translateX(1.5%) translateY(-0.8%) scale(1.015) rotate(0.4deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateX(-1.5%) translateY(-0.5%) scale(0.985) rotate(-0.4deg);
-    opacity: 0.75;
+    opacity: 0.9;
   }
 }
 

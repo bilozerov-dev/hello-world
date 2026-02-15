@@ -38,13 +38,11 @@ body {
   width: var(--moon-size);
   height: var(--moon-size);
   border-radius: 50%;
-  /* Pure black as requested */
   background: #000;
   box-shadow:
-    /* Inner shadow for depth */
     inset 0 0 30px rgba(0, 0, 0, 0.9),
     inset -10px -10px 20px rgba(255, 255, 255, 0.05),
-    /* Event horizon glow */ 0 0 15px 2px rgba(50, 50, 80, 0.4);
+    0 0 15px 2px rgba(50, 50, 80, 0.4);
   z-index: 2;
 }
 
@@ -53,13 +51,11 @@ body {
   width: var(--moon-size);
   height: var(--moon-size);
   border-radius: 50%;
-  /* Pure black as requested */
   background: #000;
   box-shadow:
-    /* Inner shadow for depth */
     inset 0 0 30px rgba(0, 0, 0, 0.9),
     inset -10px -10px 20px rgba(255, 255, 255, 0.05),
-    /* Event horizon glow */ 0 0 15px 2px rgba(50, 50, 80, 0.4);
+    0 0 15px 2px rgba(50, 50, 80, 0.4);
   position: relative;
   z-index: 2;
 }
@@ -74,39 +70,41 @@ body {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: -1; /* This ensures they stay BEHIND the black hole */
+  z-index: -1;
 }
 
 /* First radiance layer - green and pink aurora */
 .black-hole-moon-placeholder::before {
-  width: 400%;
-  height: 400%;
+  width: 1200%;
+  height: 1200%;
   background: radial-gradient(
     ellipse at center,
-    rgba(34, 197, 94, 0.25) 0%,
-    rgba(168, 85, 247, 0.2) 15%,
-    rgba(236, 72, 153, 0.15) 30%,
-    rgba(34, 197, 94, 0.1) 45%,
-    transparent 70%
+    rgba(34, 197, 94, 0.12) 0%,
+    rgba(168, 85, 247, 0.1) 15%,
+    rgba(236, 72, 153, 0.08) 30%,
+    rgba(34, 197, 94, 0.06) 45%,
+    rgba(59, 130, 246, 0.04) 60%,
+    transparent 80%
   );
   animation: aurora-pulse 12s ease-in-out infinite;
-  filter: blur(40px);
+  filter: blur(80px);
 }
 
 /* Second radiance layer - blue and cyan dispersed light */
 .black-hole-moon-placeholder::after {
-  width: 600%;
-  height: 600%;
+  width: 1800%;
+  height: 1800%;
   background: radial-gradient(
     circle at center,
-    rgba(59, 130, 246, 0.15) 0%,
-    rgba(34, 197, 94, 0.12) 20%,
-    rgba(236, 72, 153, 0.1) 35%,
-    rgba(6, 182, 212, 0.08) 50%,
-    transparent 75%
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(34, 197, 94, 0.06) 20%,
+    rgba(236, 72, 153, 0.05) 35%,
+    rgba(6, 182, 212, 0.04) 50%,
+    rgba(168, 85, 247, 0.03) 65%,
+    transparent 85%
   );
   animation: aurora-disperse 20s ease-in-out infinite;
-  filter: blur(60px);
+  filter: blur(120px);
 }
 
 /* Slow pulsing aurora animation */

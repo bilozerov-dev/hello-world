@@ -162,12 +162,10 @@
 
           setTimeout(() => {
             this.remove();
-
-            // Check if all aliens are gone
-            if (alienCount === 0) {
-              celebrateVictory();
-            }
-          }, 500);
+          }, 250);
+          if (alienCount === 0) {
+            celebrateVictory();
+          }
         });
       });
 

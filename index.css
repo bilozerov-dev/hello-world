@@ -171,4 +171,44 @@ p {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  :root {
+    --moon-size: 100px;
+    --moon-position-top: 8%;
+  }
+
+  .content {
+    padding: 35vh 2rem 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --moon-size: 130px;
+    --moon-position-top: 4%;
+  }
+
+  .content {
+    padding: 40vh 1.5rem 2rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
 }

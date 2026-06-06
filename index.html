@@ -114,6 +114,10 @@
         padding: 0;
       }
 
+      .built-list:first-of-type {
+        margin-bottom: 1.5rem;
+      }
+
       .built-list a {
         display: block;
         padding: 1rem 1.25rem;
@@ -147,6 +151,27 @@
         font-size: 0.92rem;
         color: rgba(255, 255, 255, 0.7);
         line-height: 1.4;
+      }
+
+      @media (max-width: 768px) {
+        .built p {
+          margin-bottom: 1rem;
+        }
+        .built-list:first-of-type {
+          margin-bottom: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .built p {
+          margin-bottom: 1rem;
+          color: #22c55e;
+          text-align: center;
+          letter-spacing: 0.05em;
+        }
+        .built-list:first-of-type {
+          margin-bottom: 1rem;
+        }
       }
     </style>
   </head>
@@ -214,6 +239,21 @@
       </p>
 
       <section class="built">
+        <p>// work projects</p>
+        <ul class="built-list">
+          <li>
+            <a
+              href="https://marketplace.visualstudio.com/items?itemName=EmbeddLimited.embedd"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="built-name">Embedd</span>
+              <span class="built-desc"
+                >AI embeddded datasheet analysis and driver generation.</span
+              >
+            </a>
+          </li>
+        </ul>
         <p>// hobby projects</p>
         <ul class="built-list">
           <li>
@@ -237,8 +277,8 @@
             >
               <span class="built-name">Mundaily</span>
               <span class="built-desc"
-                >A little habit tracker — pilot App Store product by lixoleksii,
-                my partner-and-I studio.</span
+                >A little habit tracker — pilot App Store product by
+                lixoleksii.</span
               >
             </a>
           </li>
@@ -278,7 +318,7 @@
         const content = document.querySelector(".content");
         const thanksMsg = document.createElement("p");
         thanksMsg.className = "thanks-message";
-        thanksMsg.textContent = "Thanks!❤️";
+        thanksMsg.textContent = "All aliens eliminated! Thanks!❤️";
         content.appendChild(thanksMsg);
 
         // Create confetti
